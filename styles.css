@@ -1,0 +1,334 @@
+ @font-face {
+     font-family: minecraft;
+     src: url('assets/Minecraft.ttf');
+ }
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+ 
+ :root {
+     --primary: #2C8E3D;
+     --primary-dark: #1E6B2D;
+     --secondary: #523A21;
+     --dark: #1A1A1A;
+     --light: #F5F5F5;
+     --accent: #9fefec;
+ }
+
+ body {
+     font-family: "Poppins", sans-serif;
+     background-color: #f8f9fa;
+     color: #333;
+     line-height: 1.6;
+ }
+
+ a, h2, h1 {
+    font-family: minecraft;
+ }
+
+ /* Modern Minecraft-inspired navbar */
+ .navbar {
+     background-color: var(--dark);
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+     padding: 15px 0;
+ }
+
+ .navbar-brand {
+     font-weight: 700;
+     color: #9fefec;
+     font-size: 1.5rem;
+     pointer-events: none;
+ }
+
+ .navbar-brand span {
+     color: #d1fbfa
+ }
+
+ .nav-link {
+     color: var(--light);
+     font-weight: 500;
+     margin: 0 10px;
+     transition: all 0.3s ease;
+     position: relative;
+ }
+
+ .nav-link::after {
+     content: '';
+     position: absolute;
+     width: 0;
+     height: 2px;
+     background: var(--accent);
+     bottom: 0;
+     left: 0;
+     transition: width 0.3s;
+ }
+
+ .nav-link:hover::after {
+     width: 100%;
+ }
+
+ /* Hero Section */
+ .hero {
+     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+     color: white;
+     padding: 80px 0;
+     text-align: center;
+     position: relative;
+     overflow: hidden;
+ }
+
+ .hero::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: url('assets/grass.jfif');
+     opacity: 30%;
+ }
+
+ .hero h1 {
+     font-size: 3rem;
+     font-weight: 700;
+     font-family: "Poppins", sans-serif;
+     margin-bottom: 20px;
+     position: relative;
+ }
+
+ .hero p {
+     font-size: 1.2rem;
+     max-width: 700px;
+     margin: 0 auto 30px;
+     opacity: 0.9;
+ }
+
+ .btn-hero {
+     background-color: var(--accent);
+     color: var(--dark);
+     font-weight: 600;
+     padding: 12px 30px;
+     border-radius: 50px;
+     transition: all 0.3s ease;
+     border: none;
+     box-shadow: 0 4px 15px rgba(255, 170, 0, 0.3);
+ }
+
+ .btn-hero:hover {
+     transform: translateY(-3px);
+     box-shadow: 0 6px 20px rgba(255, 170, 0, 0.4);
+     background-color: #ffc107;
+ }
+
+ /* Games Section */
+ .games-section {
+     padding: 80px 0;
+     min-height: 100vh;
+ }
+
+ .section-title {
+     text-align: center;
+     margin-bottom: 60px;
+     position: relative;
+ }
+
+ .section-title h2 {
+     font-weight: 700;
+     color: var(--dark);
+     font-size: 2.2rem;
+ }
+
+ .section-title::after {
+     content: '';
+     display: block;
+     width: 80px;
+     height: 4px;
+     background: var(--accent);
+     margin: 15px auto;
+     border-radius: 2px;
+ }
+
+
+
+ /* Footer */
+ .footer {
+    font-family: minecraft;
+     background-color: var(--dark);
+     color: white;
+     padding: 60px 0 30px;
+ }
+
+ .footer a {
+    color: white;
+
+ }
+
+ .footer-logo {
+     font-size: 1.8rem;
+     font-weight: 700;
+     margin-bottom: 20px;
+     display: inline-block;
+ }
+
+ .footer-logo span {
+     color: var(--accent);
+ }
+
+ .footer-links h5 {
+     font-weight: 600;
+     margin-bottom: 20px;
+     color: var(--accent);
+ }
+
+ .footer-links ul {
+     list-style: none;
+     padding: 0;
+ }
+
+ .footer-links li {
+     margin-bottom: 10px;
+ }
+
+ .footer-links a {
+     color: #bbb;
+     text-decoration: none;
+     transition: all 0.3s ease;
+ }
+
+ .footer-links a:hover {
+     color: white;
+     padding-left: 5px;
+ }
+
+ .social-icons a {
+     display: inline-block;
+     width: 40px;
+     height: 40px;
+     background-color: rgba(255, 255, 255, 0.1);
+     color: white;
+     border-radius: 50%;
+     text-align: center;
+     line-height: 40px;
+     margin-right: 10px;
+     transition: all 0.3s ease;
+ }
+
+ .social-icons a:hover {
+     background-color: var(--accent);
+     color: var(--dark);
+     transform: translateY(-3px);
+ }
+
+ .copyright {
+     border-top: 1px solid rgba(255, 255, 255, 0.1);
+     padding-top: 20px;
+     margin-top: 40px;
+     text-align: center;
+     color: #bbb;
+     font-size: 0.9rem;
+ }
+
+ /* Responsive Adjustments */
+ @media (max-width: 992px) {
+     .hero h1 {
+         font-size: 2.5rem;
+     }
+
+    .row {
+        gap: 30px;
+    }
+ }
+
+ @media (max-width: 768px) {
+     .hero {
+         padding: 60px 0;
+     }
+
+     .hero h1 {
+         font-size: 2rem;
+     }
+
+     .section-title h2 {
+         font-size: 1.8rem;
+     }
+
+ }
+
+ @media (max-width: 576px) {
+     .hero {
+         padding: 50px 0;
+     }
+
+     .hero h1 {
+         font-size: 1.8rem;
+     }
+
+     .hero p {
+         font-size: 1rem;
+     }
+
+     
+
+ }
+
+ .row {
+    margin-top: 20px;
+ }
+
+.game-card {
+    border: none;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    margin-bottom: 20px;
+    font-family: minecraft;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.game-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.game-body {
+    padding: 20px;
+}
+
+.game-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.game-description {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.game-btn {
+    background-color: #2c8e3d;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 1px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.game-btn:hover {
+    background-color: #1e6b2d;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .game-img {
+        height: 150px;
+    }
+}
