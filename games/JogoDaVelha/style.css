@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        
+:root {
+    --grass: #3B8526;
+    --dirt: #5A3921;
+    --stone: #8B8B8B;
+    --gold: #FFD700;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--grass);
+    background-image: url('https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-background-creepers-v2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px #000;
+    min-height: 100vh;
+}
+
+h1 {
+    color: var(--gold);
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    border: 3px solid var(--dirt);
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+    border: 5px solid var(--dirt);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: var(--stone);
+    border: 4px solid var(--dirt);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 5px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+.cell:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.Creeper {
+    background-image: url('image/creeper\ rosto.jpg');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.Steve {
+    background-image: url('image/steve.jpg');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.explosion {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.minecraft.net/content/dam/minecraft/touchup-2020/explosion-particle.png');
+    background-size: cover;
+    animation: explode 0.8s forwards;
+    z-index: 10;
+    display: none;
+}
+
+@keyframes explode {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.5); opacity: 1; }
+    100% { transform: scale(1); opacity: 0; }
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    border: 3px solid var(--dirt);
+}
+
+.score {
+    text-align: center;
+    padding: 0 15px;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    color: var(--gold);
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+    background-color: var(--dirt);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 0 4px 0 #3D2A16;
+}
+
+button:hover {
+    background-color: #6B4B31;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #3D2A16;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #3D2A16;
+}
+
+.game-mode {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.mode-btn {
+    padding: 10px 15px;
+}
+
+.mode-btn.active {
+    background-color: var(--gold);
+    color: #000;
+    box-shadow: 0 4px 0 #b8860b;
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .game-container {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+        padding: 15px;
+    }
+    
+    .cell {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .controls, .game-mode {
+        flex-direction: column;
+        align-items: center;
+    }
+}

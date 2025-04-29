@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jogo da Velha Minecraft</title>
+</head>
+<body>
+    <h1>Jogo da Velha Minecraft</h1>
+    
+    <div class="game-mode">
+        <button class="mode-btn active" id="pvp">Jogador vs Jogador</button>
+        <button class="mode-btn" id="pvc">Jogador vs Computador</button>
+    </div>
+    
+    <div class="scoreboard">
+        <div class="score">
+            <div>Steve</div>
+            <div class="score-value" id="score-steve">0</div>
+        </div>
+        <div class="score">
+            <div>Empates</div>
+            <div class="score-value" id="score-draw">0</div>
+        </div>
+        <div class="score">
+            <div>Creeper</div>
+            <div class="score-value" id="score-creeper">0</div>
+        </div>
+    </div>
+    
+    <div class="game-container" id="gameBoard">
+        <div class="explosion" id="explosion"></div>
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+    </div>
+    
+    <div class="controls">
+        <button id="resetButton">Reiniciar Partida</button>
+        <button id="resetScore">Zerar Placar</button>
+    </div>
+    
+    <script src="script.js"></script>
+     
+    
+</body>
+</html>
