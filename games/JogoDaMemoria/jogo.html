@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória - Minecraft</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="game-container">
+        <header>
+            <h1>MEMÓRIA MINECRAFT</h1>
+            <div class="game-info">
+                <p>Encontre todos os pares de mobs para vencer!</p>
+                <div class="stats">
+                    <span id="attempts">0 tentativas</span>
+                    <span id="pairs">0/4 pares</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="memory-board" id="memoryBoard"></div>
+
+        <div class="instructions">
+            <h2>Como Jogar</h2>
+            <ol>
+                <li>Clique em uma carta para revelar o mob</li>
+                <li>Encontre o par correspondente</li>
+                <li>Cada par correto vale pontos!</li>
+                <li>Tente encontrar todos os pares com o menor número de tentativas</li>
+            </ol>
+            <button id="restartBtn">Reiniciar Jogo</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
