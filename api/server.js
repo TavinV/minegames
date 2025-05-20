@@ -21,7 +21,7 @@ app.get('/personagens', async (req, res) => {
         const data = await readJson();
         res.json(data.personagens);
     } catch (error) {
-        res.status(500).json({ error: "Erro ao ler o banco de dados" });
+        res.status(500).json({ error: "Erro ao ler o banco de dados"});
     }
 });
 

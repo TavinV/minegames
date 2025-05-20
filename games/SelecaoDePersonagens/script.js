@@ -2,6 +2,7 @@ const API_PATH = "http://localhost:3000"
 
 function selectCharacter(personagem, event) {
     // Atualiza a imagem principal
+    document.querySelector(".character-display > h1").innerText = personagem.nome.toUpperCase()
     const mainCharacter = document.getElementById('main-character');
     mainCharacter.src = `${API_PATH}/personagens/${personagem.nome}/standing`;
 
@@ -23,7 +24,7 @@ async function loadButtons(){
     // Carregar personagens
 
     fetch(`${API_PATH}/personagens`).then(async (resposta) =>{
-        if(!resposta.ok){
+        if(!resposta.ok || !resposta){
             alert("Erro na requisição. redirecionando para a home.")
             window.location.href = '../../index.html'
         }
@@ -42,6 +43,9 @@ async function loadButtons(){
             document.querySelector('.character-selector').appendChild(button)
         });
 
+    }).catch(err => {
+        alert("Erro na requisição. redirecionando para a home.")
+        window.location.href = '../../index.html'
     })
 }
 
@@ -50,24 +54,3 @@ loadButtons()
 window.onload = function () {
     document.querySelector('.character-btn').classList.add('active');
 };
-
-{/* <button class="character-btn" onclick="selectCharacter('steve')">
-                <img src="http://localhost:3000/personagens/ivor/icon"
-                    alt="Steve">
-            </button>
-            <button class="character-btn" onclick="selectCharacter('alex')">
-                <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/characters/char_alex.png"
-                    alt="Alex">
-            </button>
-            <button class="character-btn" onclick="selectCharacter('zombie')">
-                <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/characters/char_zombie.png"
-                    alt="Zumbi">
-            </button>
-            <button class="character-btn" onclick="selectCharacter('enderman')">
-                <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/characters/char_enderman.png"
-                    alt="Enderman">
-            </button>
-            <button class="character-btn" onclick="selectCharacter('creeper')">
-                <img src="https://www.minecraft.net/content/dam/minecraft/touchup-2020/characters/char_creeper.png"
-                    alt="Creeper">
-            </button> */}
