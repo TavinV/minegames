@@ -63,7 +63,7 @@ app.get('/personagens/:nome/:type', async (req, res) => {
 });
 
 app.get('/', (req,res) =>{
-    res.sendFile('../index.html')
+    res.sendFile(path.join(process.cwd(), 'index.html'))
 })
 
 
