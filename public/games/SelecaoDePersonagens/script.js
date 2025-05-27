@@ -1,4 +1,4 @@
-const API_PATH = "http://localhost:3000"
+const API_PATH = "/"
 
 function selectCharacter(personagem, event) {
     // Atualiza a imagem principal
