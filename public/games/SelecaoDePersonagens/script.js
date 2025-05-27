@@ -23,7 +23,7 @@ function selectCharacter(personagem, event) {
 async function loadButtons(){
     // Carregar personagens
 
-    fetch(`${API_PATH}/personagens`).then(async (resposta) =>{
+    fetch(`${API_PATH}personagens`).then(async (resposta) =>{
         /*if(!resposta.ok || !resposta){
             alert("Erro na requisição. redirecionando para a home.")
             window.location.href = '../../index.html'
@@ -61,7 +61,7 @@ async function loadButtons(){
             button.addEventListener('click',(e) => selectCharacter(p, e))
 
             const buttonImg = document.createElement("img")
-            buttonImg.src = `${API_PATH}/personagens/${p.nome}/icon`
+            buttonImg.src = `${API_PATH}personagens/${p.nome}/icon`
 
             button.appendChild(buttonImg)
 
