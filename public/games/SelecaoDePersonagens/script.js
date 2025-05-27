@@ -26,7 +26,7 @@ async function loadButtons(){
     fetch(`${API_PATH}/personagens`).then(async (resposta) =>{
         if(!resposta.ok || !resposta){
             alert("Erro na requisição. redirecionando para a home.")
-            window.location.href = '../../index.html'
+           // window.location.href = '../../index.html'
         }
         personagens = await resposta.json()
 
