@@ -24,12 +24,37 @@ async function loadButtons(){
     // Carregar personagens
 
     fetch(`${API_PATH}/personagens`).then(async (resposta) =>{
-        if(!resposta.ok || !resposta){
+        /*if(!resposta.ok || !resposta){
             alert("Erro na requisição. redirecionando para a home.")
             window.location.href = '../../index.html'
-        }
-        personagens = await resposta.json()
-
+        }*/
+        personagens = [
+  {
+    "nome": "ivor",
+    "standing": "standing-ivor.webp",
+    "icon": "icon-ivor.webp"
+  },
+  {
+    "nome": "jesse",
+    "standing": "standing-jesse.webp",
+    "icon": "icon-jesse.webp"
+  },
+  {
+    "nome": "lukas",
+    "standing": "standing-lukas.webp",
+    "icon": "icon-lukas.webp"
+  },
+  {
+    "nome": "petra",
+    "standing": "standing-petra.webp",
+    "icon": "icon-petra.webp"
+  },
+  {
+    "nome": "romeo",
+    "standing": "standing-romeo.webp",
+    "icon": "icon-romeo.webp"
+  }
+]
         personagens.forEach(p => {
             const button = document.createElement('button')
             button.classList.add("character-btn")
