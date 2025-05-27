@@ -192,3 +192,9 @@ button:active {
         align-items: center;
     }
 }
+
+a {
+    color: #fff;
+    font-size: 0.5em;
+    margin-bottom: 20px;
+}
