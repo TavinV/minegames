@@ -62,6 +62,10 @@ app.get('/personagens/:nome/:type', async (req, res) => {
     }
 });
 
+app.get('/', (req,res) =>{
+    res.sendFile('../index.html')
+})
+
 
 // Inicia o servidor
 const PORT = 3000;
