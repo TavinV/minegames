@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troca Palavras Minecraft</title>
+    <style>
+        @font-face {
+            font-family: minecraft;
+            src: url('../../assets/Minecraft.ttf');
+        }
+
+        body {
+            font-family: minecraft;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 30px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            color: #4CAF50;
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .back-link {
+            color: #9E9E9E;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #4CAF50;
+        }
+
+        .game-container {
+            background-color: #1E1E1E;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .instructions {
+            color: #9E9E9E;
+            margin: 15px 0 25px;
+            font-size: 14px;
+        }
+
+        .items-list {
+            margin: 25px 0;
+        }
+
+        .item {
+            background-color: #252525;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border-left: 3px solid #333;
+        }
+
+        .item:hover {
+            border-left-color: #4CAF50;
+        }
+
+        .item-number {
+            color: #81D4FA;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .original-item {
+            color: #BDBDBD;
+            margin-bottom: 5px;
+        }
+
+        .modified-item {
+            color: #C8E6C9;
+        }
+
+        .controls {
+            margin-top: 25px;
+        }
+
+        input {
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            background-color: #252525;
+            color: #FFF;
+            margin: 8px 0;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: minecraft;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        button {
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: minecraft;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Troca Palavras Minecraft</h1>
+                <a href="../../index.html" class="back-link">Voltar para a Home</a>
+            </div>
+        </header>
+
+        <div class="game-container">
+            <div class="instructions">Substitua apenas a segunda palavra dos itens (ex: "de Diamante" → "de Areia")
+            </div>
+
+            <div class="items-list" id="items-list">
+                <!-- Itens serão carregados aqui -->
+            </div>
+
+            <div class="controls">
+                <input type="number" id="item-index" min="1" max="5" placeholder="Número do item (1-5)">
+                <input type="text" id="new-word" placeholder="Nova palavra (ex: Areia)">
+                <button id="replace-btn">SUBSTITUIR</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Itens iniciais do Minecraft (compostos por 2 palavras)
+        let minecraftItems = [
+            "Picareta de Diamante",
+            "Espada de Ferro",
+            "Maçã Dourada",
+            "Poção de Força",
+            "Bloco de Redstone"
+        ];
+
+        // Elementos do DOM
+        const itemsList = document.getElementById('items-list');
+        const itemIndexInput = document.getElementById('item-index');
+        const newWordInput = document.getElementById('new-word');
+        const replaceButton = document.getElementById('replace-btn');
+
+        // Mostra os itens na tela
+        function displayItems() {
+            itemsList.innerHTML = '';
+
+            minecraftItems.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'item';
+
+                itemElement.innerHTML = `
+                    <div class="item-number">Item ${index + 1}</div>
+                    <div class="original-item">Original: ${item}</div>
+                    <div class="modified-item">Modificado: ${item}</div>
+                `;
+
+                itemsList.appendChild(itemElement);
+            });
+        }
+
+        // Substitui a segunda palavra de um item
+        function replaceSecondWord() {
+            const index = parseInt(itemIndexInput.value) - 1;
+            const newWord = newWordInput.value.trim();
+
+            // Validações
+            if (isNaN(index)) {
+                alert("Por favor, digite um número entre 1 e 5");
+                return;
+            }
+
+            if (index < 0 || index > 4) {
+                alert("O número deve ser entre 1 e 5");
+                return;
+            }
+
+            if (!newWord) {
+                alert("Digite uma nova palavra");
+                return;
+            }
+
+            // Separa o item em partes
+            const itemParts = minecraftItems[index].split(' ');
+
+            // Verifica se tem pelo menos 2 palavras
+            if (itemParts.length < 2) {
+                alert("Este item não pode ser modificado (precisa ter 2 palavras)");
+                return;
+            }
+
+            // Substitui a última palavra
+            itemParts[itemParts.length - 1] = newWord;
+
+            // Junta novamente
+            minecraftItems[index] = itemParts.join(' ');
+
+            // Atualiza a exibição
+            displayItems();
+
+            // Limpa os campos
+            itemIndexInput.value = '';
+            newWordInput.value = '';
+
+            // Mostra o resultado
+            const items = document.querySelectorAll('.item');
+            items[index].querySelector('.modified-item').textContent = `Modificado: ${minecraftItems[index]}`;
+        }
+
+        // Event listeners
+        replaceButton.addEventListener('click', replaceSecondWord);
+
+        // Tecla Enter no campo de texto
+        newWordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                replaceSecondWord();
+            }
+        });
+
+        // Inicializa o jogo
+        displayItems();
+    </script>
+</body>
+
+</html>
