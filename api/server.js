@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(cors({
-    origin: `*`,
+    origin: `https://minegames.onrender.com/`,
     methods: ["GET"]
 }))
 
