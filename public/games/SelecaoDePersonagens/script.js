@@ -4,7 +4,7 @@ function selectCharacter(personagem, event) {
     // Atualiza a imagem principal
     document.querySelector(".character-display > h1").innerText = personagem.nome.toUpperCase()
     const mainCharacter = document.getElementById('main-character');
-    mainCharacter.src = `${API_PATH}/personagens/${personagem.nome}/standing`;
+    mainCharacter.src = `${API_PATH}personagens/${personagem.nome}/standing`;
 
     // Remove a classe 'active' de todos os botões
     const buttons = document.querySelectorAll('.character-btn');
